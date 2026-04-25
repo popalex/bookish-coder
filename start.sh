@@ -1,5 +1,12 @@
 #!/bin/bash
 
+# Generate random API key
+API_KEY="sk-$(openssl rand -hex 16)"
+
+echo "======================================"
+echo " LiteLLM API KEY: $API_KEY"
+echo "======================================"
+
 echo "Starting Ollama..."
 OLLAMA_HOST=0.0.0.0 ollama serve &
 
@@ -19,6 +26,7 @@ echo "Starting LiteLLM proxy..."
 litellm --config /config.yaml \
         --host 0.0.0.0 \
         --port 4000 &
+        --api-key $API_KEY &
 
 echo "All services started."
 
