@@ -2,6 +2,7 @@
 
 # Generate random API key
 API_KEY="sk-$(openssl rand -hex 16)"
+export LITELLM_MASTER_KEY=$API_KEY
 
 echo "======================================"
 echo " LiteLLM API KEY: $API_KEY"
@@ -20,6 +21,10 @@ ollama pull qwen2.5-coder:14b
 echo "Warming up models (first run only)..."
 ollama run qwen2.5-coder:7b "warmup"
 ollama run qwen2.5-coder:14b "warmup"
+
+echo "======================================"
+echo " LiteLLM API KEY: $API_KEY"
+echo "======================================"
 
 echo "Starting LiteLLM proxy..."
 
