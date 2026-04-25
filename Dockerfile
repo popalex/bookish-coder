@@ -7,6 +7,7 @@ RUN apt-get update && apt-get install -y \
     git \
     python3 \
     python3-pip \
+    zstd \
     && rm -rf /var/lib/apt/lists/*
 
 # Install Ollama
