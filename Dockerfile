@@ -14,7 +14,7 @@ RUN apt-get update && apt-get install -y \
 RUN curl -fsSL https://ollama.com/install.sh | sh
 
 # Install LiteLLM
-RUN pip install litellm
+RUN pip install "litellm[proxy]"
 
 # Set model storage
 ENV OLLAMA_MODELS=/root/.ollama
